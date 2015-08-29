@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/client"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <TextView
+            android:id="@+id/qrcodefragment_tv_qrcode_contentclient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="扫扫二维码，下载导游客户端" />
+
+        <com.widget.image.BaseImageView
+            android:id="@+id/qrcodefragment_iv_img_qrcodeclient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qrcodefragment_tv_qrcode_contentclient"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/qrcodefragment_tv_qrcode_numclient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qrcodefragment_iv_img_qrcodeclient"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="您已分享次" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/service"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <TextView
+            android:id="@+id/qrcodefragment_tv_qrcode_contentservice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="扫扫二维码，下载导游客户端" />
+
+        <com.widget.image.BaseImageView
+            android:id="@+id/qrcodefragment_iv_img_qrcodeservice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qrcodefragment_tv_qrcode_contentservice"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/qrcodefragment_tv_qrcode_numservice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qrcodefragment_iv_img_qrcodeservice"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="您已分享次" />
+    </RelativeLayout>
+
+</LinearLayout>

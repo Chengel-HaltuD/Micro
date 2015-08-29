@@ -1,0 +1,423 @@
+1. A :应用工具类 
+
+-1.  描述: 判断当前应用程序处于前台还是后台          方法：public static boolean isBackground(Context context);
+0.  描述: 判断当前应用程序处于前台还是后台          方法：public static boolean isApplicationBroughtToBackground(final Context context);需添加权限<uses-permission android:name="android.permission.GET_TASKS" />
+1.  描述: 打开并安装文件.          方法：public static void installApk(Context context, File file);
+2.  描述: 卸载程序.                方法：public static void uninstallApk(Context context,String packageName);
+3.  描述: 用来判断服务是否运行.    方法：public static boolean isServiceRunning(Context context, String className);
+4.  描述: 停止服务.         	  方法：public static boolean stopRunningService(Context context, String className);
+5.  描述: 在该装置提供的核心数，在所有的处理器。要求：能阅读文件“/系统/设备/系统/ CPU”          方法：public static int getNumCores();
+6.  描述: 判断网络是否有效.        方法：public static boolean isNetworkAvailable(Context context);
+7.  描述: Gps是否打开        	  方法：public static boolean isGpsEnabled(Context context);
+8.  描述: 判断当前网络是否是移动数据网络.          方法：public static boolean isMobile(Context context);
+9.  描述: 导入数据库.             方法：public static boolean importDatabase(Context context,String dbName,int rawRes);
+10. 描述: 获取屏幕尺寸与密度.    方法：public static DisplayMetrics getDisplayMetrics(Context context);
+11. 描述: 打开键盘.          	 方法：public static void showSoftInput(Context context);
+12. 描述: 关闭键盘事件.          方法：public static void closeSoftInput(Context context);
+1.  描述: 打卡软键盘   		 方法:public static void openKeybord(EditText mEditText, Context mContext);
+2.  描述: 关闭软键盘   		 方法:public static void closeKeybord(EditText mEditText, Context mContext);
+13. 描述: 获取包信息.            方法：public static PackageInfo getPackageInfo(Context context);
+14. 描述: 获取运行的进程列表.    方法：public static List<MicroAppProcessInfo> getRunningAppProcesses(Context context);
+15. 描述: 根据进程名返回应用程序.方法：public static ApplicationInfo getApplicationInfo(Context context,String processName);
+16. 描述: kill进程.    		 方法：public static void killProcesses(Context context,int pid,String processName);
+17. 描述: 执行PS.    		 方法：public static List<MicroPsRow> ps();
+18. 描述: 获得这个进程的ps信息.  方法：public static MicroPsRow getPsRow(String processName);
+19. 描述: 根据进程名获取CPU和内存信息. 方法：public static MicroProcessInfo getMemInfo(String processName);
+20. 描述: 根据进程ID获取CPU和内存信息. 方法：public static MicroProcessInfo getMemInfo(int pid);
+21. 描述: 执行命令.    		 方法：public static String runCommand(String[] command, String workdirectory);
+22. 描述: 运行脚本.    		 方法：public static String runScript(String script);
+23. 描述: 应用程序运行命令获取 Root权限，设备必须已破解(获得ROOT权限).    		方法：public static boolean getRootPermission(Context context);
+24. 描述: 获取进程运行的信息.    方法：public static List<String[]> getProcessRunningInfo();
+25. 描述: top -n 1.    		 方法：public static String runCommandTopN1();
+26. 描述: 获取进程运行的信息.    方法：public static MicroCPUInfo getCPUInfo();
+27. 描述: 解析数据.    		 方法：public static List<String[]> parseProcessRunningInfo(String info);
+28. 描述: 解析数据.    		 方法：public static MicroCPUInfo parseCPUInfo(String info);
+29. 描述: 获取可用内存.    	 方法：public static long getAvailMemory(Context context);
+30. 描述: 总内存.    		 方法：public static long getTotalMemory(Context context);
+
+2. B :图片压缩工具类
+
+1. 描述: 质量压缩		  方法:public static Bitmap compressBitmap(Bitmap image,int maxkb);
+2. 描述: 官网：获取压缩后的图片	  方法:public static Bitmap decodeSampledBitmapFromResource(Resources res,int resId, int reqWidth, int reqHeight);  http://developer.android.com/training/displaying-bitmaps/load-bitmap.html
+3. 描述: 官网：获取压缩后的图片   方法:public static Bitmap decodeSampledBitmapFromFile(String filepath,int reqWidth, int reqHeight);
+4. 描述: 官网：获取压缩后的图片   方法:public static Bitmap decodeSampledBitmapFromBitmap(Bitmap bitmap,int reqWidth, int reqHeight);
+5. 描述: 计算压缩比例值(改进版 by touch_ping)   方法:public static int calculateInSampleSize(BitmapFactory.Options options,int reqWidth, int reqHeight);原版2>4>8...倍压缩 当前2>3>4...倍压缩
+
+3. C :缓存工具类
+
+1. 描述: 从连接中获取响应信息     方法:public static MicroCacheResponse getCacheResponse(String url,int expiresTime);
+
+4. D : 日期处理类
+
+1.  描述：String类型的日期时间转化为Date类型  方法:public static Date getDateByFormat(String strDate, String format);
+2.  描述：获取偏移之后的Date		     方法:public Date getDateByOffset(Date date,int calendarField,int offset);
+3.  描述：获取指定日期时间的字符串(可偏移)    方法:public static String getStringByOffset(String strDate, String format,int calendarField,int offset);
+4.  描述：Date类型转化为String类型(可偏移)    方法:public static String getStringByOffset(Date date, String format,int calendarField,int offset);
+5.  描述：Date类型转化为String类型  	     方法:public static String getStringByFormat(Date date, String format);
+6.  描述：获取指定日期时间的字符串,用于导出想要的格式  方法:public static String getStringByFormat(String strDate, String format);
+7.  描述：获取milliseconds表示的日期时间的字符串  方法:public static String getStringByFormat(long milliseconds,String format);
+8.  描述：获取表示当前日期时间的字符串  		 方法:public static String getCurrentDate(String format) ;
+9.  描述：获取表示当前日期时间的字符串(可偏移)    方法:public static String getCurrentDateByOffset(String format,int calendarField,int offset);
+10. 描述：计算两个日期所差的天数    		 方法:public static int getOffectDay(long milliseconds1, long milliseconds2);
+11. 描述：计算两个日期所差的小时数  		 方法:public static int getOffectHour(long date1, long date2);
+12. 描述：计算两个日期所差的分钟数  		 方法:public static int getOffectMinutes(long date1, long date2);
+13. 描述：获取本周一  				 方法:public static String getFirstDayOfWeek(String format);
+14. 描述：获取本周日  				 方法:public static String getLastDayOfWeek(String format) ;
+15. 描述：获取本周的某一天  			 方法:private static String getDayOfWeek(String format,int calendarField);
+16. 描述：获取本月第一天  			 方法:public static String getFirstDayOfMonth(String format);
+17. 描述：获取本月最后一天  			 方法:public static String getLastDayOfMonth(String format);
+18. 描述：获取表示当前日期的0点时间毫秒数  	 方法:public static long getFirstTimeOfDay();
+19. 描述：获取表示当前日期24点时间毫秒数  	 方法:public static long getLastTimeOfDay();
+20. 描述：判断是否是闰年  		  	 方法:public static boolean isLeapYear(int year);
+21. 描述：根据时间返回格式化后的时间的描述  	 方法:public static String formatDateStr2Desc(String strDate,String outFormat);
+22. 描述：取指定日期为星期几  			 方法:public static String getWeekNumber(String strDate,String inFormat) ;
+23. 描述：根据给定的日期判断是否为上下午  	 方法:public static String getTimeQuantum(String strDate, String format);
+24. 描述：根据给定的毫秒数算得时间的描述  	 方法:public static String getTimeDescription(long milliseconds);
+
+5. E :公共异常类
+
+1. 描述: 获取异常信息    			方法:public String getMessage();
+
+6. F :文件操作类(少一个)
+
+1.  描述: 通过文件的本地地址从SD卡读取图片    	方法:public static Bitmap getBitmapFromSD(File file,int type,int desiredWidth, int desiredHeight);
+2.  描述: 通过文件的本地地址从SD卡读取图片    	方法:public static Bitmap getBitmapFromSD(File file);
+3.  描述: 将图片的byte[]写入本地文件    		方法:public static Bitmap getBitmapFromByte(byte[] imgByte,String fileName,int type,int desiredWidth, int desiredHeight);
+4.  描述: 根据URL从互连网获取图片    		方法:public static Bitmap getBitmapFromURL(String url,int desiredWidth, int desiredHeight);
+5.  描述: 获取Asset中的图片资源    		方法:public static Bitmap getBitmapFromAsset(Context context,String fileName);
+6.  描述: 获取Asset中的图片资源    		方法:public static Drawable getDrawableFromAsset(Context context,String fileName);
+7.  描述: 下载网络文件到SD卡中.如果SD中存在同名文件将不再下载    方法:public static String downloadFile(String url,String dirPath);
+8.  描述: 获取网络文件的大小    			方法:public static int getContentLengthFromUrl(String Url);
+9.  描述: 获取文件名，通过网络获取    		方法:public static String getRealFileNameFromUrl(String url);
+10. 描述: 获取真实文件名（xx.后缀），通过网络获取方法:public static String getRealFileName(HttpURLConnection connection);
+11. 描述: 获取真实文件名（xx.后缀），通过网络获取方法:public static String getRealFileName(HttpResponse response);
+12. 描述: 获取文件名（不含后缀）    		方法:public static String getCacheFileNameFromUrl(String url);
+13. 描述: 获取文件名（.后缀），外链模式和通过网络获取   方法:public static String getCacheFileNameFromUrl(String url,HttpResponse response);
+14. 描述: 获取文件名（.后缀），外链模式和通过网络获取   方法:public static String getCacheFileNameFromUrl(String url,HttpURLConnection connection);
+15. 描述: 获取文件后缀，本地    			方法:public static String getMIMEFromUrl(String url,HttpURLConnection connection);
+16. 描述: 获取文件后缀，本地和网络    		方法:public static String getMIMEFromUrl(String url,HttpResponse response);
+17. 描述: 从sd卡中的文件读取到byte[]    		方法:public static byte[] getByteArrayFromSD(String path);
+18. 描述: 将byte数组写入文件    			方法:public static void writeByteArrayToSD(String path, byte[] content,boolean create);
+19. 描述: 将bitmap写入文件    			方法:public static void writeBitmapToSD(String path,Bitmap bitmap,boolean create);
+20. 描述: 拷贝Assets目录内容到sd卡目录    	方法:public static void copyAssets2SD(Context context, String assetDir, String outDir);
+21. 描述: 描述：SD卡是否能用    		方法:public static boolean isCanUseSD();
+21. 描述: 描述：判断SD卡是否挂载    		方法:public static boolean isSDCardAvailable();
+
+22. 描述: 初始化存储目录    			方法:public static void initFileDir(Context context);
+23. 描述: 计算sdcard上的剩余空间    		方法:public static int freeSpaceOnSD();
+24. 描述: 根据文件的最后修改时间进行排序    	类名:public static class FileLastModifSort implements Comparator<File>{};方法:public int compare(File arg0, File arg1);
+25. 描述: 删除所有缓存文件    			方法:public static boolean clearDownloadFile();
+26. 描述: 删除文件    				方法:deleteFile(File file);
+27. 描述: 读取Assets目录的文件内容    		方法:public static String readAssetsByName(Context context,String name,String encoding);
+28. 描述: 读取Raw目录的文件内容    		方法:public static String readRawByName(Context context,int id,String encoding);
+29. 描述: Gets the download root dir    		方法:public static String getDownloadRootDir(Context context);
+30. 描述: Gets the image download dir    	方法:public static String getImageDownloadDir(Context context);
+31. 描述: Gets the file download dir    		方法:public static String getFileDownloadDir(Context context);
+32. 描述: Gets the cache download dir    	方法:public static String getCacheDownloadDir(Context context);
+33. 描述: Gets the db download dir    		方法:public static String getDbDownloadDir(Context context);
+34. 描述: Gets the free sd space needed to cache 方法:public static int getFreeSdSpaceNeededToCache();
+
+7. G :图形处理类
+
+1. 描述: 获取字符的所在位置（按像素获取最大能容纳的）   方法:public static int subStringLength(String str,int maxPix,TextPaint paint);
+2. 描述: 获取文字的像素宽  				方法:public static float getStringWidth(String str,TextPaint paint);
+3. 描述: 获得文字的宽度   				方法:public static float getDesiredWidth(String str,TextPaint paint)
+4. 描述: 获取文字的高度   				方法:public static float getDesiredHeight(TextPaint paint);
+5. 描述: 解析成行   					方法:public static List<String> getDrawRowStr(String text,int maxWPix,TextPaint paint);
+6. 描述: 获取这段文本多少行   				方法:public static int getDrawRowCount(String text,int maxWPix,TextPaint paint);
+7. 描述: 绘制文本，支持换行   				方法:public static int drawText(Canvas canvas,String text,int maxWPix,TextPaint paint,int left,int top);
+
+8. H :Http执行工具类
+
+1. 描述: 获取实例   				方法:public static H getInstance(Context context);
+2. 描述: 下载图片的工具方法   			方法:public static byte[] loadImgFromNet(String url, String method)throws Exception;
+3. 描述: 下载JSON的工具方法   			方法:public static String loadJsonFromNet(String url, String method)throws Exception;
+
+9. I :图片处理类
+
+1. 描述: 从互联网上获取原始大小图片   				方法:public static Bitmap getBitmap(String url);
+12. 描述: 获取原图   						方法:public static Bitmap getBitmap(File file);
+13. 描述: 从互联网上获取指定大小的图片   			方法:public static Bitmap getBitmap(String url,int desiredWidth, int desiredHeight);
+14. 描述: 从流中获取指定大小的图片   				方法:public static Bitmap getBitmap(byte [] data,int desiredWidth, int desiredHeight);
+15. 描述: 从流中获取指定大小的图片   				方法:public static Bitmap getBitmap(String url);
+16. 描述: 缩放图片   						方法:public static Bitmap getScaleBitmap(File file, int desiredWidth, int desiredHeight);
+17. 描述: 缩放图片   						方法:public static Bitmap getScaleBitmap(Bitmap bitmap, int desiredWidth, int desiredHeight);
+18. 描述: 裁剪图片   						方法:public static Bitmap getCutBitmap(File file, int desiredWidth, int desiredHeight);
+19. 描述: 裁剪图片   						方法:public static Bitmap getCutBitmap(Bitmap bitmap, int desiredWidth, int desiredHeight);
+20. 描述: 根据等比例缩放图片   					方法:public static Bitmap scaleBitmap(Bitmap bitmap, float scale);
+21. 描述: 获取图片尺寸   					方法:public static float[] getBitmapSize(File file);
+22. 描述: 获取缩小的比例   					方法:public static float getMinScale(int srcWidth, int srcHeight, int desiredWidth,int desiredHeight);
+23. 描述: 获取缩放尺寸(?)   					方法:public static int[] resizeToMaxSize(int srcWidth, int srcHeight,int desiredWidth, int desiredHeight);
+24. 描述: Drawable转Bitmap   					方法:public static Bitmap drawableToBitmap(Drawable drawable);
+25. 描述: Bitmap对象转换Drawable对象   				方法:public static Drawable bitmapToDrawable(Bitmap bitmap) ;
+26. 描述: Bitmap对象转换TransitionDrawable对象   		方法:public static TransitionDrawable bitmapToTransitionDrawable(Bitmap bitmap);
+27. 描述: Drawable对象转换TransitionDrawable对象   		方法:public static TransitionDrawable drawableToTransitionDrawable(Drawable drawable);
+28. 描述: 将Bitmap转换为byte[]   				方法:public static byte[] bitmap2Bytes(Bitmap bitmap,Bitmap.CompressFormat mCompressFormat, final boolean needRecycle);
+29. 描述: 获取Bitmap大小   					方法:public static int getByteCount(Bitmap bitmap,Bitmap.CompressFormat mCompressFormat);
+30. 描述: 将byte[]转换为Bitmap   				方法:public static Bitmap bytes2Bimap(byte[] b);
+31. 描述: 将ImageView转换为Bitmap   				方法:public static Bitmap imageView2Bitmap(ImageView view);
+32. 描述: 将View转换为Drawable.需要最上层布局为Linearlayout   	方法:public static Drawable view2Drawable(View view);
+33. 描述: 将View转换为Bitmap.需要最上层布局为Linearlayout   	方法:public static Bitmap view2Bitmap(View view) ;
+34. 描述: 将View转换为byte[]   					方法:public static byte[] view2Bytes(View view,Bitmap.CompressFormat compressFormat);
+35. 描述: 旋转Bitmap为一定的角度   				方法:public static Bitmap rotateBitmap(Bitmap bitmap, float degrees);
+36. 描述: 旋转Bitmap为一定的角度并四周暗化处理   		方法:public static Bitmap rotateBitmapTranslate(Bitmap bitmap, float degrees);
+37. 描述: 转换图片转换成圆形   					方法:public static Bitmap toRoundBitmap(Bitmap bitmap);
+38. 描述: 转换图片转换成镜面效果的图片   			方法:public static Bitmap toReflectionBitmap(Bitmap bitmap);
+39. 描述: 释放Bitmap对象   					方法:public static void releaseBitmap(Bitmap bitmap);
+40. 描述: 释放Bitmap数组   					方法:public static void releaseBitmapArray(Bitmap[] bitmaps);
+41. 描述: 简单的图像的特征值，用于缩略图找原图比较好   		方法:public static String getHashCode(Bitmap bitmap);
+42. 描述: 图像的特征值余弦相似度   				方法:public static String getDCTHashCode(Bitmap bitmap);
+43. 描述: 图像的特征值颜色分布 将颜色分4个区，0,1,2,3 区组合共64组，计算每个像素点属于哪个区   	方法:public static int[] getColorHistogram(Bitmap bitmap);
+44. 描述: 计算"汉明距离"(Hamming distance)   			方法:public static int hammingDistance(String sourceHashCode, String hashCode);如果不相同的数据位不超过5，就说明两张图片很相似；如果大于10，就说明这是两张不同的图片
+45. 描述: 灰度值计算   						方法:public static int rgbToGray(int pixels);
+46. 描述: 找到最合适的SampleSize   				方法:public static int findBestSampleSize(int actualWidth, int actualHeight, int desiredWidth, int desiredHeight);
+
+
+10. J :json处理类
+
+1. 描述: 将对象转化为json   					方法:public static String toJson(Object src);
+2. 描述: 将列表转化为json   					方法:public static String toJson(List<?> list);
+3. 描述: 将json转化为列表   					方法:public static List<?> fromJson(String json,TypeToken typeToken);
+4. 描述: 将json转化为对象   					方法:public static Object fromJson(String json,Class clazz);
+5. 描述: 将json转化为列表   					方法:public static List<?> fromJson(String json,TypeToken typeToken);
+
+11. L :The class for print log
+
+1.  描述: Purpose:Mark user one KESEN    			方法:public static L kLog();
+2.  描述: Purpose:Mark user two JAMES   			方法:public static L jLog();
+3.  描述: Get The Log Info    					方法:public static L getLog(String className);
+4.  描述: The Log Level:V   					方法:public static void V(Object string);
+5.  描述: The Log Level:d    					方法:public static void D(Object string);
+6.  描述: The Log Level:此为特殊   				方法:public static void D(String format, Object... args);
+7.  描述: The Log Level:i    					方法:public static void I(Object string);
+8.  描述: The Log Level:w   					方法:public static void W(Object string);
+9.  描述: The Log Level:e   					方法:public static void E(Object string);
+10. 描述: The Log Level:e   					方法:public static void E(Exception exception);
+11. 描述: The Log Level:e   					方法:public static void E(String string, Throwable throwable);
+
+12. M :MD5加密工具类
+
+1. 描述: MD5加密   						方法:public static String getMd5Value(String sSecret);
+2. 描述: MD5加密   						方法:public final static String MD5(String str);
+
+13. N :NetUtils跟网络相关的工具类
+
+1.  描述: 判断网络是否连接   					方法:public static boolean isConnected(Context context);
+2.  描述: 判断是否是wifi连接   					方法:public static boolean isWifi(Context context);
+3.  描述: 打开网络设置界面    					方法:public static void openSetting(Activity activity);
+4.  描述: 使用SSL不信任的证书   				方法:public static void useUntrustedCertificate();
+5.  描述: 打开wifi   						方法:public static void setWifiEnabled(Context context,boolean enabled);
+6.  描述: 是否有网络连接   					方法:public static boolean isConnectivity(Context context);
+7.  描述: 判断当前网络是否是wifi网络   				方法:public static boolean isWifiConnectivity(Context context);
+8.  描述: 得到所有的WiFi列表   					方法:public static List<ScanResult> getScanResults(Context context);
+9.  描述: 根据SSID过滤扫描结果   				方法:public static ScanResult getScanResultsByBSSID(Context context,String bssid);
+10. 描述: 获取连接的WIFI信息   					方法:public static WifiInfo getConnectionInfo(Context context);
+
+14. O :ObjectUtils的转换对象，比较对象
+
+1. 描述: compare two object   					方法:public static boolean isEquals(Object actual, Object expected);
+2. 描述: null Object to empty string   				方法:public static String nullStrToEmpty(Object str);
+3. 描述: convert long array to Long array   			方法:public static Long[] transformLongArray(long[] source);
+4. 描述: convert Long array to long array   			方法:public static long[] transformLongArray(Long[] source);
+5. 描述: convert int array to Integer array   			方法:public static Integer[] transformIntArray(int[] source);
+6. 描述: convert Integer array to int array   			方法:public static int[] transformIntArray(Integer[] source);
+7. 描述: compare two object   					方法:public static <V> int compare(V v1, V v2);
+
+
+15. P :PerogressDialog进度加载条
+
+1. 描述: 通过构造初始化   					方法:public P(Context context);
+2. 描述: 通过构造初始化   					方法:public P(Context context, int theme);
+3. 描述: 正在执行   						方法:public void OnProcessing(String content);
+4. 描述: 网络出现问题   					方法:public void OnNetError();
+5. 描述: 数据加载成功   					方法:public void OnSuccess();
+6. 描述: 操作执行失败作   					方法:public void OnOperationFail(String content);
+
+
+16. Q :StringUtils字符串工具类
+
+-1.  描述: 隐藏电话号吗中间四位					方法:public String hiddenMobile(String mobile);
+0.  描述: 判断是字母,数字,汉字   				方法:public static String isText(String text);
+1.  描述: 字符串截取，去掉多余的零   				方法:public static String subZeroAndDot(String s);
+2.  描述: 判断字符串是否相等，如果其中有一个为空字符串或者null，则返回false，只有全相等才返回true   				方法:public static boolean isEquals(String... agrs);
+3.  描述: 判断字符串是否为空，如果为null或者是空字符串或者只有空格或者为"null"字符串，则返回true，否则则返回false   		方法:public static boolean isEmpty(String value);
+4.  描述: 判断多个字符串是否有空值?   				方法:public static boolean isEmpty(String... value);
+5.  描述: 判断对象是否为空，如果为null或者是空字符串或者只有空格或者为"null"字符串，则返回true，否则则返回false   		方法:public static boolean isEmpty(Object obj);
+6.  描述: 判断多个对象是否有空对象？   				方法:public static boolean isEmpty(Object... obj);
+7.  描述: 返回一个高亮spannable   				方法:public static CharSequence getHighLightText(String content, int color, int start, int end);
+8.  描述: 获取链接样式的字符串，即字符串下面有下划线   		方法:public static Spanned getHtmlStyleString(Context context,int resId);
+9.  描述: 格式化文件大小，不保留末尾的0   			方法:public static String formatFileSize(long len);
+10. 描述: 格式化文件大小，保留末尾的0，达到长度一致   		方法:public static String formatFileSize(long len, boolean keepZero);
+
+
+17. R :ResourceUtils资源工具类
+
+1. 描述: 从Assest获得文件(?)   					方法:public static String geFileFromAssets(Context context, String fileName);
+2. 描述: 从原料资源获取内容(?)   				方法:public static String geFileFromRaw(Context context, int resId);
+3. 描述: 从Assest获得文件(?)   					方法:public static List<String> geFileToListFromAssets(Context context, String fileName);
+3. 描述: 从原料资源获取内容(?)   				方法:public static List<String> geFileToListFromRaw(Context context, int resId);
+
+18. S :SharedPreferences存储工具类
+
+1. 描述: 保存在手机里面的文件名   				方法:public static final String FILE_NAME = "share_data";;
+2. 描述: 保存数据的方法，我们需要拿到保存数据的具体类型，然后根据类型调用不同的保存方法   	  方法:public static void put(Context context, String key, Object object);
+3. 描述: 得到保存数据的方法，我们根据默认值得到保存的数据的具体类型，然后调用相对于的方法获取值   方法:public static Object get(Context context, String key, Object defaultObject);
+4. 描述: 移除某个key值已经对应的值   				方法:public static void remove(Context context, String key);
+5. 描述: 清除所有数据   					方法:public static void clear(Context context);
+6. 描述: 查询某个key是否已经存在   				方法:public static boolean contains(Context context, String key);
+7. 描述: 返回所有的键值对   					方法:public static Map<String, ?> getAll(Context context);
+
+19. T :Toast自定义Toast
+ 
+1.  描述: 通过构造初始化   					方法:public T(Context context);
+2.  描述: 默认效果   	  					方法:public void D(String string);
+3.  描述: 默认效果   						方法:public void D(String string,Context context);
+4.  描述: 自定义显示位置效果   					方法:public void P(String string);
+5.  描述: 自定义显示位置效果   					方法:public void P(String string,int xOffSet,int yOffSet);
+6.  描述: 自定义显示位置效果   					方法:public void P(String string,int xOffSet,int yOffSet,Context context);
+7.  描述: 内嵌图片效果   					方法:public void I(String string);
+8.  描述: 内嵌图片效果   					方法:public void I(String string,int resId);
+9.  描述: 内嵌图片效果   					方法:public void I(String string,int xOffSet,int yOffSet);
+10. 描述: 内嵌图片效果   					方法:public void I(String string,int resId ,int xOffSet,int yOffSet);
+11. 描述: 内嵌图片效果   					方法:public void I(String string,int resId ,int xOffSet,int yOffSet,Context context);
+12. 描述: 外带图片消息   					方法:public void O(String string);
+13. 描述: 外带图片消息   					方法:public void O(String string,int resId);
+14. 描述: 外带图片消息   					方法:public void O(String string,int xOffSet,int yOffSet);
+15. 描述: 外带图片消息   					方法:public void O(String string,int resId,int xOffSet,int yOffSet);
+16. 描述: 外带图片消息   					方法:public void O(String string,int resId,int xOffSet,int yOffSet,Context context);
+12. 描述: 自定义View的Toast   					方法:public void V(String string,int resId);
+12. 描述: 自定义View的Toast   					方法:public void V(String string,int resId,ViewGroup root);
+12. 描述: 其他线程   						方法:public void Thread(String string);
+
+20. V :View工具类.常用单位转换的辅助类
+
+0.  描述: 超简洁的ViewHolder 					方法:public static <T extends View> T get(View view, int id);
+1.  描述: 重置AbsListView的高度. item 的最外层布局要用   	方法:public static void setAbsListViewHeight(AbsListView absListView,int lineNumber, int verticalSpace);
+2.  描述: 获取AbsListView的高度   	  			方法:public static int getAbsListViewHeight(AbsListView absListView,int lineNumber, int verticalSpace);
+3.  描述: 测量这个view   					方法:public static void measureView(View view);
+4.  描述: 获得这个View的宽度   					方法:public static int getViewWidth(View view);
+5.  描述: 获得这个View的高度   					方法:public static int getViewHeight(View view);
+6.  描述: 从父亲布局中移除自己   				方法:public static void removeSelfFromParent(View v);
+7.  描述: dip转换为px   					方法:public static float dip2px(Context context, float dipValue);
+8.  描述: px转换为dip   					方法:public static float px2dip(Context context, float pxValue);
+9.  描述: sp转换为px   						方法:public static float sp2px(Context context, float spValue);
+10. 描述: px转换为sp   						方法:public static float px2sp(Context context, float pxValue);
+11. 描述: 根据屏幕大小缩放   					方法:public static int scaleValue(Context context, float value);
+12. 描述: 根据屏幕大小缩放文本   				方法:public static int scaleTextValue(Context context, float value);
+13. 描述: 根据屏幕大小缩放   					方法:public static int scale(int displayWidth, int displayHeight, float pxValue);
+14. 描述: TypedValue官方源码中的算法，任意单位转换为PX单位   	方法:public static float applyDimension(int unit, float value,DisplayMetrics metrics);
+15. 描述: View树递归调用做适配   				方法:public static void scaleContentView(ViewGroup contentView);
+16. 描述: View树递归调用做适配   				方法:public static void scaleContentView(View parent,int id);
+17. 描述: View树递归调用做适配   				方法:public static void scaleContentView(Context context,int id);
+18. 描述: 按比例缩放View，以布局中的尺寸为基准   		方法:public static void scaleView(View view);
+19. 描述: 是否需要Scale   					方法:public static boolean isNeedScale(View view);
+20. 描述: 缩放文字大小   					方法:public static void setSPTextSize(TextView textView,float size);
+21. 描述: 缩放文字大小,这样设置的好处是文字的大小不和密度有关   方法:public static void setTextSize(TextView textView,float sizePixels);
+22. 描述: 缩放文字大小   					方法:public static void setTextSize(Context context,TextPaint textPaint,float sizePixels);
+23. 描述: 缩放文字大小   					方法:public static void setTextSize(Context context,Paint paint,float sizePixels);
+24. 描述: 设置View的PX尺寸   					方法:public static void setViewSize(View view,int widthPixels, int heightPixels);
+25. 描述: 设置PX padding   					方法:public static void setPadding(View view, int left,int top, int right, int bottom);
+26. 描述: 设置 PX margin   					方法:public static void setMargin(View view, int left, int top,int right, int bottom);
+
+21. W :SystemUtils 系统工具类
+
+0.  描述: 获取android物理尺寸 					方法:public static String getPhysicalsize(Context context)  
+1.  描述: 获取android系统版本号   				方法:public static String getOSVersion();
+2.  描述: 获得android系统sdk版本号   	  			方法:public static String getOSVersionSDK();
+3.  描述: 获得android系统sdk版本号   				方法:public static int getOSVersionSDKINT();
+4.  描述: 获取手机型号   					方法:public static String getDeviceModel();
+5.  描述: 获取设备的IMEI   					方法:public static String getIMEI(Context context);
+6.  描述: 检测手机是否已插入SIM卡   				方法:public static boolean isCheckSimCardAvailable(Context context);
+7.  描述: sim卡是否可读   					方法:public static boolean isCanUseSim(Context context);
+8.  描述: 取得当前sim手机卡的imsi   				方法:public static String getIMSI(Context context);
+9.  描述: 返回本地手机号码，这个号码不一定能获取到   		方法:public static String getNativePhoneNumber(Context context);
+10.  描述: 返回手机服务商名字   				方法:public static String getProvidersName(Context context);
+11.  描述: 获取当前设备的SN   					方法:public static String getSimSN(Context context);
+12.  描述: 获取当前设备的MAC地址   				方法:public static String getMacAddress(Context context);
+13.  描述: 获得设备ip地址    					方法:public static String getLocalAddress();
+14.  描述: 获取屏幕的分辨率   					方法:public static int[] getResolution(Context context);
+15.  描述: 获得设备的横向dpi   					方法:public static float getWidthDpi(Context context);
+16.  描述: 获得设备的纵向dpi   					方法:public static float getHeightDpi(Context context) ;
+17.  描述: 获取设备信息   					方法:public static String[] getDivceInfo();
+18.  描述: 判断手机CPU是否支持NEON指令集   			方法:public static boolean isNEON();
+19.  描述: 读取CPU信息文件，获取CPU信息    			方法:private static String getCPUInfos();
+20.  描述: 获取当前设备cpu的型号   				方法:public static int getCPUModel();
+21.  描述: 匹配当前设备的cpu型号   				方法:private static int matchABI(String abiString);
+22.  描述: 获取CPU核心数   					方法:public static int getCpuCount();
+23.  描述: 获取Rom版本   					方法:public static String getRomversion();
+24.  描述: 获取系统配置参数   					方法:public static String getSystemProperty(String key);
+25.  描述: 获取系统中的Library包   				方法:public static List<String> getSystemLibs(Context context);
+26.  描述: 获取手机外部可用空间大小，单位为byte   		方法:public static long getExternalTotalSpace();
+27.  描述: 获取外部存储可用空间，单位为byte   			方法:public static long getExternalSpace();
+28.  描述: 获取手机内部空间大小，单位为byte   			方法:public static long getTotalInternalSpace();
+29.  描述: 获取手机内部可用空间大小，单位为byte   		方法:public static long getAvailableInternalMemorySize();
+30.  描述: 获取单个应用最大分配内存，单位为byte   		方法:public static long getOneAppMaxMemory(Context context);
+31.  描述: 获取指定本应用占用的内存，单位为byte   		方法:public static long getUsedMemory(Context context);
+32.  描述: 获取指定包名应用占用的内存，单位为byte   		方法:public static long getUsedMemory(Context context,String packageName);
+33.  描述: 获取手机剩余内存，单位为byte   			方法:public static long getAvailableMemory(Context context);
+34.  描述: 手机低内存运行阀值，单位为byte   			方法:public static long getThresholdMemory(Context context);
+35.  描述: 手机是否处于低内存运行   				方法:public static boolean isLowMemory(Context context);
+
+
+22. X :VerifyCheck 描述：验证类
+
+0.  描述: 车牌号是否正确   					方法:public static boolean isCarBrand(String carBrand);
+1.  描述: 验证手机号码的格式是否正确   				方法:public static boolean isMobilePhoneVerify(String mobileString);
+2.  描述: 手机号码是否正确   	  				方法:public static boolean isMobileNo(String mobile) ;
+3.  描述: 验证邮箱格式是否正确   				方法:public static boolean isEmailVerify(String emailString);
+4.  描述: 验证身份证的号码是否是格式正确的   			方法:public static boolean isIDCardVerify(String idCardNumber);
+5.  描述: 验证密码的强度   					方法:public static String judgePassLevel(String string);
+6.  描述: 验证真是姓名的格式是否正确，是否是中文   		方法:public static boolean isRealnameVerify(String realitynameString);
+
+
+
+23. Y :AbStreamUtil 描述：流工具类
+ 
+1.  描述: 获取ByteArrayInputStream   				方法:public static InputStream bytes2Stream(byte[] buf);
+2.  描述: 从流中读取数据到byte[]   	  			方法:public static byte[] stream2bytes(InputStream inStream) throws IOException ;
+3.  描述: 从流中读取指定的长度到byte[]   			方法:public static byte[] stream2Bytes(InputStream in, int length) throws IOException;
+4.  描述: 从流中读取指定的长度到byte[]   			方法:public static byte[] stream2Bytes(InputStream in, int length) throws IOException;
+5.  描述: ////   						方法:public static int read(InputStream is) throws IOException;
+6.  描述: ////Write int   					方法:public static void writeInt(OutputStream os, int n) throws IOException;
+7.  描述: Read int   						方法:public static int readInt(InputStream is) throws IOException ;
+8.  描述: Write long   						方法:public static void writeLong(OutputStream os, long n) throws IOException;
+9.  描述: Read long   						方法:public static long readLong(InputStream is) throws IOException;
+10. 描述: Write string   					方法:public static void writeString(OutputStream os, String s) throws IOException;
+11. 描述: Read string   					方法:public static String readString(InputStream is) throws IOException ;
+12. 描述: Write string string map   				方法:public static void writeStringStringMap(Map<String, String> map, OutputStream os) throws IOException;
+13. 描述: Read string string map   				方法:public static Map<String, String> readStringStringMap(InputStream is) throws IOException;
+
+24. Z :AbMathUtil 描述：数学处理类
+ 
+1.  描述: 四舍五入   						方法:public static BigDecimal round(double number, int decimal);
+2.  描述: 字节数组转换成16进制串   	  			方法:public static String byte2HexStr(byte[] b, int length);
+3.  描述: 二进制转为十六进制   					方法:public static char binaryToHex(int binary);
+4.  描述: 一维数组转为二维数组   				方法:public static int[][] arrayToMatrix(int[] m, int width, int height);
+5.  描述: 二维数组转为一维数组   				方法:public static double[] matrixToArray(double[][] m);
+6.  描述: int数组转换为double数组   				方法:public static double[] intToDoubleArray(int[] input);
+7.  描述: int二维数组转换为double二维数组   			方法:public static double[][] intToDoubleMatrix(int[][] input);
+8.  描述: 计算数组的平均值   					方法:public static int average(int[] pixels);
+9.  描述: 计算数组的平均值   					方法:public static int average(double[] pixels);
+10. 描述: 计算对数   						方法:public static double log(double value, double base);
+11. 描述: 点在直线上   						方法:public static boolean pointOnLine(double x,double y,double x1,double y1,double x2,double y2);
+12. 描述: 点在线段上   						方法:public static boolean pointAtELine(double x,double y,double x1,double y1,double x2,double y2);
+13. 描述: 两条直线相交   					方法:public static boolean LineOnLine(double x1,double y1,double x2,double y2,double x3,double y3,double x4,double y4);
+14. 描述: 线段与线段相交   					方法:public static boolean eLineOnELine(double x1,double y1,double x2,double y2,double x3,double y3,double x4,double y4);
+15. 描述: 线段直线相交   					方法:public static boolean eLineOnLine(double x1,double y1,double x2,double y2,double x3,double y3,double x4,double y4);
+16. 描述: 点在矩形内   						方法:public static boolean pointOnRect(double x,double y,double x1,double y1,double x2,double y2);
+17. 描述: 矩形在矩形内   					方法:public static boolean rectOnRect(double x1,double y1,double x2,double y2,double x3,double y3,double x4,double y4);
+18. 描述: 圆心在矩形内   					方法:public static boolean circleOnRect(double x,double y,double r,double x1,double y1,double x2,double y2);
+19. 描述: 点是否是两个圆的交点   				方法:public static boolean pointOnCircle(MicroPoint point,MicroCircle c1,MicroCircle c2);
+20. 描述: 点是否是两个圆的交点,允许0.01误差   			方法:public static boolean pointOnCircle(MicroPoint point,MicroCircle c1,MicroCircle c2,float offset);
+21. 描述: 点在圆上   						方法:public static boolean pointInCircle(MicroPoint point,MicroCircle circle);
+22. 描述: 获取两点间的距离   					方法:public static double getDistance(MicroPoint p1,MicroPoint p2);
+23. 描述: 获取两点间的距离   					方法:public static double getDistance(double x1,double y1,double x2,double y2);
+24. 描述: 矩形碰撞检测 参数为x,y,width,height   		方法:public static boolean isRectCollision(float x1, float y1, float w1,float h1, float x2, float y2, float w2, float h2);
+25. 描述: 求两个圆的交点   					方法:public static List<MicroPoint> circleCrossoverPoint(MicroCircle circle1,MicroCircle circle2);
+26. 描述: 根据两点间经纬度坐标（double值），计算两点间距离，单位为米   	方法:public static double getGeoDistance(double longitude1, double latitude1, double longitude2, double latitude2);
+
+
+
+
+
+

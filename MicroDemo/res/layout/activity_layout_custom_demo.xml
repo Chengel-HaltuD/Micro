@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical" >
+
+            <com.widget.edittext.ClearEditText
+                android:id="@+id/clearedittext"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/lockopenxha"
+                android:drawableLeft="@drawable/ic_launcher"
+                android:gravity="center_vertical"
+                android:hint="手机号"
+                android:inputType="number"
+                android:paddingLeft="3dp"
+                android:singleLine="true"
+                android:textColor="#5B5B5B"
+                android:textColorHint="#D3D3D3"
+                android:textSize="14sp" />
+
+            <com.widget.edittext.ClearEditTextAutoComplete
+                android:id="@+id/cleareautocompletedittext"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/lockopenxha"
+                android:digits="@string/digits"
+                android:drawableLeft="@drawable/ic_launcher"
+                android:hint=" Email"
+                android:imeOptions="actionNext"
+                android:inputType="textVisiblePassword"
+                android:numeric="decimal"
+                android:paddingLeft="3dp"
+                android:shadowColor="#E0E0E0"
+                android:shadowRadius="1"
+                android:singleLine="true"
+                android:textColor="#5B5B5B"
+                android:textColorHint="#D3D3D3"
+                android:textSize="14sp" />
+
+            <com.widget.custombutton.CustomButton
+                android:id="@+id/custombutton"
+                android:layout_width="90dp"
+                android:layout_height="25dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/showtoast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="显示" />
+
+                <Button
+                    android:id="@+id/closetoast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="关闭" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/xlistview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XListView" />
+            <Button
+                android:id="@+id/wandoujia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WanDouJia" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

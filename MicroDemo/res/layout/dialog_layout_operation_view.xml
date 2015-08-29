@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:layout_width="120dip"
+        android:layout_height="100dip"
+        android:layout_centerVertical="true"
+        android:alpha="0.5"
+        android:background="@drawable/ic_load_background"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ProgressBar
+            android:id="@+id/operation_view_progress_bar"
+            android:layout_width="32dip"
+            android:layout_height="32dip"
+            android:indeterminateDrawable="@drawable/dialog_drable_operation_ing" />
+
+        <ImageView
+            android:id="@+id/operation_view_icon_operation"
+            android:layout_width="32dip"
+            android:layout_height="32dip"
+            android:src="@drawable/ic_load_success"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/operation_view_txt_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_horizontal"
+            android:text="Operating...."
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</RelativeLayout>
